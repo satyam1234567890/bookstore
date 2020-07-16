@@ -1,5 +1,8 @@
 package com.capgemini.main.dao;
 
-public interface CancleOrderDao {
+import com.capgemini.main.entities.Order;
 
+public interface CancleOrderDao {
+public boolean findOrder(int orderId);
+public Order getOrderDetails(int orderId);
 }

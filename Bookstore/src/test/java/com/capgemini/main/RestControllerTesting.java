@@ -23,25 +23,51 @@ public class RestControllerTesting extends BookstoreApplicationTests {
 	private WebApplicationContext webApplicationContext;
 
 	
-	//@InjectMocks
-	//private OrderInformationController orderInformationController;
+	@InjectMocks
+	private OrderInformationController orderInformationController;
 	
 	private MockMvc mockMvc;
 	
 	
 	@Before
 	public void setup() throws Exception {
-		mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
-	
+	//	mockMvc = MockMvcBuilders.webAppContextSetup(webApplicationContext).build();
+		mockMvc = MockMvcBuilders.standaloneSetup(orderInformationController).build();
 	}
 	
 	@Test
 	public void demoTest() throws Exception
 	{
-		mockMvc.perform(get("/hello")).andExpect(status().isOk())
-		.andExpect(content().contentType("Hello"));
+		mockMvc.perform(get("/hello"))
+		.andExpect(status().isOk())
+		.andExpect(content().string("Hello"));
 	
 	
 	}
 	
+	/*
+	@Test
+	public void cancleOrder1() throws Exception
+	{
+		mockMvc.perform(get("/CancleOrder/orderID"))
+		.andExpect(status().isOk())
+		.andExpect(content().string("")); //order deleted and status change to cancle
+	}
+	
+	@Test
+	public void cancleOrder2() throws Exception
+	{
+		mockMvc.perform(get("/CancleOrder/orderID"))
+		.andExpect(status().isOk())
+		.andExpect(content().string(""));//order not found orderId is incorrect.
+	}
+	
+	@Test
+	public void cancleOrder2() throws Exception
+	{
+		mockMvc.perform(get("/CancleOrder/orderID"))
+		.andExpect(status().isOk())
+		.andExpect(content().string(""));//order is already deleted.
+	}
+	*/
 }
