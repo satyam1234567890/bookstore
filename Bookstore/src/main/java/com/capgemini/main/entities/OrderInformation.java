@@ -1,5 +1,7 @@
 package com.capgemini.main.entities;
 
+import java.time.LocalDate;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -17,18 +20,17 @@ import org.hibernate.annotations.DynamicUpdate;
 @DynamicInsert
 @DynamicUpdate
 @Table(name="bookstore_order")
-public class Order {
+public class OrderInformation {
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "seq")
-	@SequenceGenerator(name = "seq",initialValue = 1,allocationSize = 100)
 	@Column(name = "order_id")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="orderIdGenerator")
+	@SequenceGenerator(name="orderIdGenerator", initialValue=1000)
 	private int orderId;
 	
 	@ManyToOne
 	@JoinColumn(name="customer_id", referencedColumnName = "customer_id")
 	private CustomerInformation customerDetails = new CustomerInformation();
-	
 
 	@Column(name="shipping_address")
 	private String shippingAddress;
@@ -47,6 +49,29 @@ public class Order {
 	
 	@Column(name="payment_method")
 	private String paymentMethod;
+	
+	@Column(name="order_date")
+	private LocalDate orderDate;
+	
+	@OneToMany
+	@JoinColumn(name="book_id", referencedColumnName = "book_id")
+	private BookInformation book = new BookInformation();
+	
+	public LocalDate getOrderDate() {
+		return orderDate;
+	}
+
+	public void setOrderDate(LocalDate orderDate) {
+		this.orderDate = orderDate;
+	}
+
+	public BookInformation getBook() {
+		return book;
+	}
+
+	public void setBook(BookInformation book) {
+		this.book = book;
+	}
 
 	public int getOrderId() {
 		return orderId;

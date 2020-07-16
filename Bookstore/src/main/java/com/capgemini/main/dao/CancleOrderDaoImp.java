@@ -5,7 +5,8 @@ import javax.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.capgemini.main.entities.Order;
+
+import com.capgemini.main.entities.OrderInformation;
 
 @Repository
 public class CancleOrderDaoImp implements CancleOrderDao {
@@ -16,17 +17,24 @@ public class CancleOrderDaoImp implements CancleOrderDao {
 	@Override
 	public boolean findOrder(int orderId) {
 		// TODO Auto-generated method stub
-		return entityManager.contains(entityManager.find(Order.class, orderId));
+		return entityManager.contains(entityManager.find(OrderInformation.class, orderId));
 		
 	}
 
 	@Override
-	public Order getOrderDetails(int orderId) {
+	public OrderInformation getOrderDetails(int orderId) {
 		// TODO Auto-generated method stub
-		return entityManager.find(Order.class, orderId);
+		return entityManager.find(OrderInformation.class, orderId);
 	
 	}
+
+	@Override
+	public void updateOrderStatus(int orderId, String orderStatus) {
+		// TODO Auto-generated method stub
+		entityManager.find(OrderInformation.class, orderId).setOrderStatus(orderStatus);
+		
+	}
 	
-	//for demo purpose we make this function
+
 
 }

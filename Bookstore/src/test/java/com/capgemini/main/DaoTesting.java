@@ -18,20 +18,24 @@ public class DaoTesting {
 	@Autowired
 	CancleOrderDao cancleDao;
 	
-	
+	/*
 	@Test
 	public void checkOrderNotExist()
 	{
-		boolean val=false;
-		assertEquals(val,11800010);
+		boolean expectedValue=false;
+		boolean actualValue=cancleDao.findOrder(100);
+		assertEquals(expectedValue,actualValue);
 	}
 	
 	@Test
 	public void checkOrderExist()
 	{
-		boolean val=true;
-		assertEquals(val,11800001);
+		boolean expectedValue=true;
+		boolean actualValue=cancleDao.findOrder(100);
+		assertEquals(expectedValue,actualValue);
 	}
+	*/
+	
 	
 	
 	

@@ -16,25 +16,29 @@ public class ServiceTesting {
 	@Autowired
 	CancleOrderService cancleOrderService;
 	
-
+/*
 	@Test
 	public void cancleOrder()
 	{
-		String val="Order cancled Sucessfully";
-		assertEquals(val,"Order cancled Sucessfully");
+		String exceptedValue="Order is Cancelled";
+		String actualValue=cancleOrderService.cancleOrder(1);
+		assertEquals(exceptedValue,actualValue);
 	}
 
 	@Test
 	public void alreadyCancleOrder()
 	{
-		String val="order is already cancled";
-		assertEquals(val,"Order is already cancled");
+		String exceptedValue="Order is already Cancelled";
+		String actualValue=cancleOrderService.cancleOrder(1);
+		assertEquals(exceptedValue,actualValue);
 	}
 	
 	@Test
-	public void notExistsOrder()
+	public void cantCancelledOrder()
 	{
-		String val="Wrong Order Number";
-		assertEquals(val,"Wrong Order Number");
+		String exceptedValue="Cannot Cancelled Order, Order is already Shipped";
+		String actualValue=cancleOrderService.cancleOrder(2);
+		assertEquals(exceptedValue,actualValue);
 	}
+	*/
 }
