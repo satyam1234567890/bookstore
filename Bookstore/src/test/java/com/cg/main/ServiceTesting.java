@@ -1,4 +1,4 @@
-package com.capgemini.main;
+package com.cg.main;
 
 import static org.junit.Assert.assertEquals;
 
@@ -8,28 +8,27 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.capgemini.main.service.CancleOrderService;
+import com.cg.main.service.orderInformationService;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class ServiceTesting {
+
 	@Autowired
-	CancleOrderService cancleOrderService;
-	
-/*
+	orderInformationService service;
+
 	@Test
 	public void cancleOrder()
 	{
 		String exceptedValue="Order is Cancelled";
-		String actualValue=cancleOrderService.cancleOrder(1);
+		String actualValue=service.cancleOrder(1);
 		assertEquals(exceptedValue,actualValue);
 	}
-
 	@Test
 	public void alreadyCancleOrder()
 	{
 		String exceptedValue="Order is already Cancelled";
-		String actualValue=cancleOrderService.cancleOrder(1);
+		String actualValue=service.cancleOrder(1);
 		assertEquals(exceptedValue,actualValue);
 	}
 	
@@ -37,8 +36,7 @@ public class ServiceTesting {
 	public void cantCancelledOrder()
 	{
 		String exceptedValue="Cannot Cancelled Order, Order is already Shipped";
-		String actualValue=cancleOrderService.cancleOrder(2);
+		String actualValue=service.cancleOrder(2);
 		assertEquals(exceptedValue,actualValue);
 	}
-	*/
 }

@@ -1,4 +1,4 @@
-package com.capgemini.main.entities;
+package com.cg.main.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,7 +13,7 @@ import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
 @Entity
-@Table(name="bookstore_admin")
+@Table(name="bookstore_adminnn")
 @DynamicUpdate
 @DynamicInsert
 public class Admin {

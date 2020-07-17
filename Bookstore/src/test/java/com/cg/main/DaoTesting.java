@@ -1,4 +1,4 @@
-package com.capgemini.main;
+package com.cg.main;
 
 import static org.junit.Assert.assertEquals;
 
@@ -8,17 +8,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.capgemini.main.dao.CancleOrderDao;
-
+import com.cg.main.dao.CancleOrderDao;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class DaoTesting {
-	
+
 	@Autowired
 	CancleOrderDao cancleDao;
 	
-	/*
+	
 	@Test
 	public void checkOrderNotExist()
 	{
@@ -34,12 +33,4 @@ public class DaoTesting {
 		boolean actualValue=cancleDao.findOrder(100);
 		assertEquals(expectedValue,actualValue);
 	}
-	*/
-	
-	
-	
-	
-	
-	
-
 }

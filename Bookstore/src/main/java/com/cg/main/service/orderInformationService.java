@@ -1,7 +1,6 @@
-package com.capgemini.main.service;
+package com.cg.main.service;
 
-public interface CancleOrderService {
+public interface orderInformationService {
 	public boolean findOrderById(int orderId);
 	public String cancleOrder(int orderId);
-
 }

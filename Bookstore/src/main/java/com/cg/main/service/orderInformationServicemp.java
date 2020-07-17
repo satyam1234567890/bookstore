@@ -1,16 +1,14 @@
-package com.capgemini.main.service;
+package com.cg.main.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.capgemini.main.dao.CancleOrderDao;
-import com.capgemini.main.entities.OrderInformation;
+import com.cg.main.dao.CancleOrderDao;
+import com.cg.main.entities.Order;
 
-
-public class CancleOrderServiceImp implements CancleOrderService {
-
-	
+public class orderInformationServicemp implements orderInformationService {
 	@Autowired
 	CancleOrderDao cancleOrderDao;
+	
 	@Override
 	public boolean findOrderById(int orderId) {
 		// TODO Auto-generated method stub
@@ -23,7 +21,7 @@ public class CancleOrderServiceImp implements CancleOrderService {
 	public String cancleOrder(int orderId) {
 		// TODO Auto-generated method stub
 		
-		OrderInformation orderDetails=new OrderInformation();
+		Order orderDetails=new Order();
 			orderDetails=cancleOrderDao.getOrderDetails(orderId);
 			
 			if(orderDetails.getOrderStatus().equals("Processing"))
@@ -43,5 +41,4 @@ public class CancleOrderServiceImp implements CancleOrderService {
 		
 		 
 	}
-
 }

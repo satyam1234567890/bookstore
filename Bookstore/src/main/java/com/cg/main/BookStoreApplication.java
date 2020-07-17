@@ -1,14 +1,13 @@
-package com.capgemini.main;
+package com.cg.main;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class BookstoreApplication {
+public class BookStoreApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BookstoreApplication.class, args);
-		//System.out.println("hello");
+		SpringApplication.run(BookStoreApplication.class, args);
 	}
 
 }

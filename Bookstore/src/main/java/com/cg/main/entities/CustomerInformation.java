@@ -1,4 +1,4 @@
-package com.capgemini.main.entities;
+package com.cg.main.entities;
 
 import java.time.LocalDate;
 
@@ -7,9 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.Size;
 
 import org.hibernate.annotations.DynamicInsert;
@@ -18,15 +16,12 @@ import org.hibernate.annotations.DynamicUpdate;
 @Entity
 @DynamicInsert
 @DynamicUpdate
-@Table(name = "bookstore_customer",
-uniqueConstraints = {@UniqueConstraint(columnNames = {"email"})}
-)
+@Table(name = "bookstore_customerrr")
 public class CustomerInformation {
 
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="customerIdGenerator")
-	@SequenceGenerator(name="customerIdGenerator", initialValue=100)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE)
 	@Column(name="customer_id")
 	private int customerId;
 	

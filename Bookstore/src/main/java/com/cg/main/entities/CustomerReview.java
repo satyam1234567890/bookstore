@@ -1,4 +1,4 @@
-package com.capgemini.main.entities;
+package com.cg.main.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,7 +12,7 @@ import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
 @Entity
-@Table(name="bookstore_customer_review")
+@Table(name="customer_revieww")
 @DynamicInsert
 @DynamicUpdate
 public class CustomerReview {

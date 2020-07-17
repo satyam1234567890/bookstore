@@ -1,4 +1,4 @@
-package com.capgemini.main.entities;
+package com.cg.main.entities;
 
 import java.sql.Date;
 import java.time.LocalDate;

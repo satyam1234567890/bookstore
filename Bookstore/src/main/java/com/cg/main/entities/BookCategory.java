@@ -1,10 +1,13 @@
-package com.capgemini.main.entities;
+package com.cg.main.entities;
 
 import javax.persistence.Column;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
@@ -12,8 +15,9 @@ import javax.validation.constraints.Size;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
+
 @Entity
-@Table(name="bookstore_book_category")
+@Table(name="book_categoryy")
 @DynamicInsert
 @DynamicUpdate
 public class BookCategory {
@@ -27,6 +31,11 @@ public class BookCategory {
 	@Column(name="category_name")
 	@Size(min=5, max=30)
 	private String categoryName;
+
+	
+	@ManyToOne(optional = false)   
+	@JoinColumn(name="book_id")
+	BookInformation book;
 
 	public int getCategoryId() {
 		return categoryId;

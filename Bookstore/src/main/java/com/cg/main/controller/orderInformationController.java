@@ -1,4 +1,5 @@
-package com.capgemini.main.controller;
+package com.cg.main.controller;
+
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -6,32 +7,34 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
-import com.capgemini.main.service.CancleOrderService;
 
+import com.cg.main.dao.CancleOrderDao;
+import com.cg.main.service.orderInformationService;
 
 
 
 @RestController
-public class OrderInformationController {
-	
+public class orderInformationController {
+
 	
 	@Autowired
-	CancleOrderService cancleOrderService;
+	orderInformationService service;
 	
-	@GetMapping("/hello")
-	public String helloWorld()
-	{
-		return "Hello";
+	@GetMapping("/DemoTest")
+	public ResponseEntity<String> Demo()    {
+		
+			
+		return new ResponseEntity<String>("Hello",HttpStatus.OK);
 	}
-
+	
 	
 	@GetMapping("/CancleOrder/{orderId}")
 	public ResponseEntity<String> DepositSlip(@PathVariable int orderId)  {
 		String result="Order Id Not Found";
-		if(cancleOrderService.findOrderById(orderId))
+		if(service.findOrderById(orderId))
 		{
 			
-			result=cancleOrderService.cancleOrder(orderId);
+			result=service.cancleOrder(orderId);
 			return new ResponseEntity<String>(result,HttpStatus.OK);
 			 
 		}
@@ -40,6 +43,4 @@ public class OrderInformationController {
 		
 		
 	}
-	
-	
 }

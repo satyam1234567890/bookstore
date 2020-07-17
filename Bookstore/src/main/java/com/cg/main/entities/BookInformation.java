@@ -1,4 +1,4 @@
-package com.capgemini.main.entities;
+package com.cg.main.entities;
 
 import java.time.LocalDate;
 
@@ -7,8 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.Size;
@@ -17,7 +15,7 @@ import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
 @Entity
-@Table(name="bookstore_book")
+@Table(name="bookstore_bookkk")
 @DynamicInsert
 @DynamicUpdate
 public class BookInformation {
@@ -31,7 +29,7 @@ public class BookInformation {
 	@Column(name="title")
 	@Size(min=10, max=128)
 	private String title;
-	 
+	
 	@Column(name="author")
 	@Size(min=5, max= 64)
 	private String author;
@@ -49,24 +47,6 @@ public class BookInformation {
 	
 	@Column(name="last_update_time")
 	private LocalDate lastUpdateTime;
-	
-	@Column(name="copies_sold")
-	private int copies_sold;
-	
-	@Column(name="price")
-	private float price;
-
-	@ManyToOne
-	@JoinColumn(name="category_id", referencedColumnName = "category_id")
-	private BookCategory category = new BookCategory();
-	
-	public BookCategory getCategory() {
-		return category;
-	}
-
-	public void setCategory(BookCategory category) {
-		this.category = category;
-	}
 
 	public int getBookId() {
 		return bookId;
@@ -123,23 +103,6 @@ public class BookInformation {
 	public void setLastUpdateTime(LocalDate lastUpdateTime) {
 		this.lastUpdateTime = lastUpdateTime;
 	}
-
-	public int getCopies_sold() {
-		return copies_sold;
-	}
-
-	public void setCopies_sold(int copies_sold) {
-		this.copies_sold = copies_sold;
-	}
-
-	public float getPrice() {
-		return price;
-	}
-
-	public void setPrice(float price) {
-		this.price = price;
-	}
-
-
+	
 	
 }
